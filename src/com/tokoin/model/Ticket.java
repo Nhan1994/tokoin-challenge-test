@@ -1,6 +1,5 @@
 package com.tokoin.model;
 
-import java.util.Date;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;

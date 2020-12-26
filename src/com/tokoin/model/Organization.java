@@ -13,7 +13,7 @@ public class Organization {
 	private String url;
 	
 	@SerializedName("external_id")
-	private String external_id;
+	private String externalId;
 
 	@SerializedName("name")
 	private String name;
@@ -41,8 +41,8 @@ public class Organization {
 		return url;
 	}
 
-	public String getExternal_id() {
-		return external_id;
+	public String getExternalId() {
+		return externalId;
 	}
 
 	public String getName() {
@@ -77,8 +77,8 @@ public class Organization {
 		this.url = url;
 	}
 
-	public void setExternal_id(String external_id) {
-		this.external_id = external_id;
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
 	}
 
 	public void setName(String name) {
@@ -105,4 +105,18 @@ public class Organization {
 		this.tags = tags;
 	}
 
+	@Override
+	public String toString() {
+		return "_id  " + id
+				+ "\n url   " + url
+				+ "\n externalId   " + externalId
+			    + "\n name    " + name
+				+ "\n domainNames   " + domainNames
+				+ "\n createdAt    " + createdAt
+				+ "\n details   " + details
+				+ "\n sharedTickets   " + sharedTickets 
+				+ "\n tags   " + tags;
+	}
+
+	
 }

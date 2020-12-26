@@ -13,7 +13,7 @@ public class User {
 	private String url;
 
 	@SerializedName("external_id")
-	private String external_id;
+	private String externalId;
 
 	@SerializedName("name")
 	private String name;
@@ -71,8 +71,8 @@ public class User {
 		return url;
 	}
 
-	public String getExternal_id() {
-		return external_id;
+	public String getExternalId() {
+		return externalId;
 	}
 
 	public String getName() {
@@ -147,8 +147,8 @@ public class User {
 		this.url = url;
 	}
 
-	public void setExternalId(String external_id) {
-		this.external_id = external_id;
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
 	}
 
 	public void setName(String name) {
@@ -217,11 +217,25 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", url=" + url + ", external_id=" + external_id + ", name=" + name + ", alias="
-				+ alias + ", created_at=" + createdAt + ", active=" + active + ", verified=" + verified + ", shared="
-				+ shared + ", locale=" + locale + ", timezone=" + timezone + ", last_login_at=" + lastLoginAt
-				+ ", email=" + email + ", phone=" + phone + ", signature=" + signature + ", organization_id="
-				+ organizationId + ", tags=" + tags + ", suspended=" + suspended + ", role=" + role + "]";
+		return "_id=     " + id + 
+				"\n url=     " + url + 
+				"\n externalId=     " + externalId + 
+				"\n name=     " + name + 
+				"\n alias=     " + alias +
+				 "\n createdAt=     " + createdAt + 
+				"\n active=     " + active + 
+				"\n verified=     " + verified + 
+				"\n shared=     " + shared +
+				"\n locale=" + locale + 
+				"\n timezone=     " + timezone + 
+				"\n lastLoginAt=     " + lastLoginAt + 
+				"\n email=     " + email +
+				"\n phone=     " + phone + 
+				"\n signature=     " + signature + 
+				"\n organizationId=     " + organizationId + 
+				"\n tags=     " + tags + 
+				"\n suspended=     " + suspended + 
+				"\n role=     " + role;
 	}
 
 }
