@@ -104,19 +104,4 @@ public class Organization {
 	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
-
-	@Override
-	public String toString() {
-		return "_id  " + id
-				+ "\n url   " + url
-				+ "\n externalId   " + externalId
-			    + "\n name    " + name
-				+ "\n domainNames   " + domainNames
-				+ "\n createdAt    " + createdAt
-				+ "\n details   " + details
-				+ "\n sharedTickets   " + sharedTickets 
-				+ "\n tags   " + tags;
-	}
-
-	
 }

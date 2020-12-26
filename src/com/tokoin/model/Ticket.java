@@ -181,25 +181,4 @@ public class Ticket {
 	public void setVia(String via) {
 		this.via = via;
 	}
-
-	@Override
-	public String toString() {
-		return "_id=" + id + 
-				"\n url=" + url + 
-				"\n externalId=" + externalId + 
-				"\n createdAt=" + createdAt +
-				"\n type=" + type + 
-				"\n subject=" + subject + 
-				"\n description=" + description + 
-				"\n priority=" + priority +
-				"\n status=" + status + 
-				"\n submitterId=" + submitterId + 
-				"\n assigneeId=" + assigneeId +
-				"\n organizationId=" + organizationId + 
-				"\n tags=" + tags + 
-				"\n hasIncidents=" + hasIncidents +
-			    "\n dueAt=" + dueAt + 
-				"\n via=" + via;
-	}
-
 }

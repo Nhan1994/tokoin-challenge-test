@@ -214,28 +214,4 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-	@Override
-	public String toString() {
-		return "_id=     " + id + 
-				"\n url=     " + url + 
-				"\n externalId=     " + externalId + 
-				"\n name=     " + name + 
-				"\n alias=     " + alias +
-				 "\n createdAt=     " + createdAt + 
-				"\n active=     " + active + 
-				"\n verified=     " + verified + 
-				"\n shared=     " + shared +
-				"\n locale=" + locale + 
-				"\n timezone=     " + timezone + 
-				"\n lastLoginAt=     " + lastLoginAt + 
-				"\n email=     " + email +
-				"\n phone=     " + phone + 
-				"\n signature=     " + signature + 
-				"\n organizationId=     " + organizationId + 
-				"\n tags=     " + tags + 
-				"\n suspended=     " + suspended + 
-				"\n role=     " + role;
-	}
-
 }
