@@ -5,52 +5,52 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class Ticket {
-	
+
 	@SerializedName("_id")
 	private String id;
-	
+
 	@SerializedName("url")
 	private String url;
-	
+
 	@SerializedName("external_id")
 	private String externalId;
-	
+
 	@SerializedName("created_at")
 	private String createdAt;
-	
+
 	@SerializedName("type")
 	private String type;
-	
+
 	@SerializedName("subject")
 	private String subject;
-	
+
 	@SerializedName("description")
 	private String description;
-	
+
 	@SerializedName("priority")
 	private String priority;
-	
+
 	@SerializedName("status")
 	private String status;
-	
+
 	@SerializedName("submitter_id")
 	private int submitterId;
-	
+
 	@SerializedName("assignee_id")
 	private int assigneeId;
-	
+
 	@SerializedName("organization_id")
 	private int organizationId;
-	
+
 	@SerializedName("tags")
 	private List<String> tags;
-	
+
 	@SerializedName("has_incidents")
 	private boolean hasIncidents;
-	
+
 	@SerializedName("due_at")
 	private String dueAt;
-	
+
 	@SerializedName("via")
 	private String via;
 
@@ -180,6 +180,26 @@ public class Ticket {
 
 	public void setVia(String via) {
 		this.via = via;
+	}
+
+	@Override
+	public String toString() {
+		return "_id=" + id + 
+				"\n url=" + url + 
+				"\n externalId=" + externalId + 
+				"\n createdAt=" + createdAt +
+				"\n type=" + type + 
+				"\n subject=" + subject + 
+				"\n description=" + description + 
+				"\n priority=" + priority +
+				"\n status=" + status + 
+				"\n submitterId=" + submitterId + 
+				"\n assigneeId=" + assigneeId +
+				"\n organizationId=" + organizationId + 
+				"\n tags=" + tags + 
+				"\n hasIncidents=" + hasIncidents +
+			    "\n dueAt=" + dueAt + 
+				"\n via=" + via;
 	}
 
 }

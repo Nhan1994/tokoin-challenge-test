@@ -2,12 +2,16 @@ package com.tokoin.main;
 
 import java.util.Scanner;
 
+import com.tokoin.model.Organization;
+import com.tokoin.model.Ticket;
+import com.tokoin.model.User;
 import com.tokoin.repository.impl.OrganizationRepositoryImpl;
 import com.tokoin.repository.impl.TicketRepositoryImpl;
 import com.tokoin.repository.impl.UserRepositoryImpl;
 import com.tokoin.service.OrganizationService;
 import com.tokoin.service.TicketService;
 import com.tokoin.service.UserService;
+import com.tokoin.utils.PrintObject;
 
 public class MainProgram {
 	private UserRepositoryImpl userRepositoryImpl;
@@ -26,39 +30,16 @@ public class MainProgram {
 
 	public static void main(String[] args) {
 		MainProgram main = new MainProgram();
-		Scanner sc = new Scanner(System.in); // System.in is a standard input stream
+		Scanner sc = new Scanner(System.in);
 		System.out.print("Type 'quit' to exit any time, Press 'Enter' to continue ");
-		String enterOrQuit = sc.nextLine(); // input enter key
+		String enterOrQuit = sc.nextLine();
 		if (enterOrQuit.equals("")) {
-			System.out.println("\n\n    Select search options:");
-			System.out.println("         * Press 1 to search");
-			System.out.println("         * Press 2 to view a list of searchable fields");
-			System.out.println("         * Type 'quit' to exit");
+			printOptions();
 			String searchOptions = sc.next();
 			if (searchOptions.equals("1")) {
-				System.out.println("Select 1) Users or 2) Tickets or 3) Organization");
-				String typeSearch = sc.next();
-				if (typeSearch.equals("1")) {
-					System.out.println("Enter search term");
-					String term = sc.next();
-					System.out.println("Enter search value");
-					String value = sc.next();
-					main.searchUsers(term, value);
-				} else if (typeSearch.equals("2")) {
-					System.out.println("Enter search term");
-					String term = sc.next();
-					System.out.println("Enter search value");
-					String value = sc.next();
-					main.searchTicket(term, value);
-				} else if (typeSearch.equals("3")) {
-					System.out.println("Enter search term");
-					String term = sc.next();
-					System.out.println("Enter search value");
-					String value = sc.next();
-					main.searchOrganization(term, value);
-				}
+				main.search(main, sc);
 			} else if (searchOptions.equals("2")) {
-				System.out.println("List of searchable fields");
+				main.printSearchableFields();
 			} else if (searchOptions.equals("quit")) {
 				System.exit(0);
 			}
@@ -67,23 +48,76 @@ public class MainProgram {
 		}
 	}
 
-	private void searchUsers(String term, String value) {
+	private void search(MainProgram main, Scanner sc) {
+		System.out.println("Select 1) Users or 2) Tickets or 3) Organizations");
+		String term = "";
+		String value = "";
+		String typeSearch = sc.next();
+		switch (typeSearch) {
+		case "1":
+			main.searchUsers(term, value, sc);
+			break;
+		case "2":
+			main.searchTicket(term, value, sc);
+			break;
+		case "3":
+			main.searchOrganization(term, value, sc);
+			break;
+		default:
+			break;
+		}
+	}
+
+	private static void printOptions() {
+		System.out.println("\n\n    Select search options:");
+		System.out.println("         * Press 1 to search");
+		System.out.println("         * Press 2 to view a list of searchable fields");
+		System.out.println("         * Type 'quit' to exit");
+	}
+
+	private void searchUsers(String term, String value, Scanner sc) {
+		System.out.println("Enter search term");
+		term = sc.next();
+		System.out.println("Enter search value");
+		value = sc.next();
 		init();
 		userService = new UserService(organizationRepositoryImpl, ticketRepositoryImpl, userRepositoryImpl);
 		userService.searchUser(term, value);
 	}
-	
-	private void searchOrganization(String term, String value) {
+
+	private void searchOrganization(String term, String value, Scanner sc) {
+		System.out.println("Enter search term");
+		term = sc.next();
+		System.out.println("Enter search value");
+		value = sc.next();
 		init();
 		organizationService = new OrganizationService(organizationRepositoryImpl, ticketRepositoryImpl,
 				userRepositoryImpl);
 		organizationService.searchOrganization(term, value);
 	}
-	
-	private void searchTicket(String term, String value) {
+
+	private void searchTicket(String term, String value, Scanner sc) {
+		System.out.println("Enter search term");
+		term = sc.next();
+		System.out.println("Enter search value");
+		value = sc.next();
 		init();
-		ticketService = new TicketService(organizationRepositoryImpl, ticketRepositoryImpl,
-				userRepositoryImpl);
+		ticketService = new TicketService(organizationRepositoryImpl, ticketRepositoryImpl, userRepositoryImpl);
 		ticketService.searchTicket(term, value);
+	}
+
+	private void printSearchableFields() {
+		System.out.println("List of searchable fields");
+		PrintObject.printHyphen();
+		System.out.println("Search Users with");
+		PrintObject.printStructureObject(User.class);
+		
+		PrintObject.printHyphen();
+		System.out.println("Search Tickets with");
+		PrintObject.printStructureObject(Ticket.class);
+		
+		PrintObject.printHyphen();
+		System.out.println("Search Organization with");
+		PrintObject.printStructureObject(Organization.class);
 	}
 }

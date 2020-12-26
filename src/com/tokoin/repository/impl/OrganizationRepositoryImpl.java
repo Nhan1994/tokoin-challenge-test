@@ -1,31 +1,27 @@
 package com.tokoin.repository.impl;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tokoin.model.Organization;
 import com.tokoin.repository.OrganizationRepository;
+import com.tokoin.utils.JsonReader;
 
 public class OrganizationRepositoryImpl implements OrganizationRepository{
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Organization> loadOrganization() {
 		List<Organization> organizations = new ArrayList<>();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("src\\com\\tokoin\\resources\\organizations.json"));
-			Type collectionType = new TypeToken<Collection<Organization>>(){}.getType(); 
-			organizations = (List<Organization>) new Gson().fromJson(br, collectionType); 
+			Type collectionType = new TypeToken<Collection<Organization>>() {}.getType();
+			organizations = JsonReader.readJsonFromFile("src\\com\\tokoin\\data\\organizations.json", collectionType);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Json file not found");
 			e.printStackTrace();
 		}
 		return organizations;
@@ -61,6 +57,7 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 							 .anyMatch(tag -> tag.equals(value)))
 					 .collect(Collectors.toList());
 		default:
+			System.out.println("The term you input doesn't exist");
 			return null;
 		}
 	}
