@@ -35,7 +35,6 @@ public class OrganizationService {
 				PrintObject.appendObjectResult(organization, strBuilder);
 				searchAndPrintOrganizationTickets(strBuilder, organization);
 				searchAndPrintOrganizationUsers(strBuilder, organization);
-				System.out.println(strBuilder.toString());
 			});
 		} else {
 			PrintObject.printNoResultFound("organization", term, value, strBuilder);

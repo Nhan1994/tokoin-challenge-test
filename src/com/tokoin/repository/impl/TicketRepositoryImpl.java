@@ -88,4 +88,9 @@ public class TicketRepositoryImpl implements TicketRepository {
 				.collect(Collectors.toList());
 	}
 
+	@Override
+	public List<Ticket> findTicketById(String id) {
+		return loadTickets().stream().filter(ticket -> ticket.getId().equals(id)).collect(Collectors.toList());
+	}
+
 }

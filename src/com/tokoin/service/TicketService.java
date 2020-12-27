@@ -33,7 +33,6 @@ public class TicketService {
 				searchAndPrintTicketAssignees(strBuilder, ticket);
 				searchAndPrintTicketSubmitters(strBuilder, ticket);
 				searchAndPrintTicketOrganizations(strBuilder, ticket);
-				System.out.println(strBuilder.toString());
 			});
 		} else {
 			PrintObject.printNoResultFound("tickets", term, value, strBuilder);

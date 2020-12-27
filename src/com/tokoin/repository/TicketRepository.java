@@ -15,4 +15,6 @@ public interface TicketRepository {
 	public List<Ticket> findTicketByAssigneeId(int assigneeId);
 	
 	public List<Ticket> findTicketBySubmitterId(int submitterId);
+	
+	public List<Ticket> findTicketById(String id);
 }

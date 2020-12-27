@@ -49,7 +49,7 @@ public class UserService {
 		}
 	}
 
-	private void searchAndPrintUserTicketAssignees(StringBuilder strBuilder, User user) {
+	private void searchAndPrintUserTicketSubmitters(StringBuilder strBuilder, User user) {
 		List<Ticket> submitterTickets = ticketRepositoryImpl.findTicketBySubmitterId(user.getId());
 		if (submitterTickets != null && !submitterTickets.isEmpty()) {
 			for (int i = 0; i < submitterTickets.size(); i++) {
@@ -58,7 +58,7 @@ public class UserService {
 		}
 	}
 
-	private void searchAndPrintUserTicketSubmitters(StringBuilder strBuilder, User user) {
+	private void searchAndPrintUserTicketAssignees(StringBuilder strBuilder, User user) {
 		List<Ticket> assigneeTickets = ticketRepositoryImpl.findTicketByAssigneeId(user.getId());
 		if (assigneeTickets != null && !assigneeTickets.isEmpty()) {
 			for (int i = 0; i < assigneeTickets.size(); i++) {
