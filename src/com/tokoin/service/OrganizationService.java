@@ -26,27 +26,28 @@ public class OrganizationService {
 		return organizationRepositoryImpl.loadOrganization();
 	}
 
-	public void searchOrganization(String term, String value) {
+	public StringBuilder searchOrganization(String term, String value) {
 		List<Organization> organizations = organizationRepositoryImpl.findOrganizationByTerm(term, value);
-
-		if (organizations != null && !organizations.isEmpty()) {
-			StringBuilder strBuilder = new StringBuilder();
+		
+		StringBuilder strBuilder = new StringBuilder();
+		if (organizations != null && !organizations.isEmpty()) {	
 			organizations.forEach(organization -> {
-				PrintObject.printObjectResult(organization);
+				PrintObject.appendObjectResult(organization, strBuilder);
 				searchAndPrintOrganizationTickets(strBuilder, organization);
 				searchAndPrintOrganizationUsers(strBuilder, organization);
 				System.out.println(strBuilder.toString());
 			});
 		} else {
-			PrintObject.printNoResultFound("organization", term, value);
+			PrintObject.printNoResultFound("organization", term, value, strBuilder);
 		}
+		return strBuilder;
 	}
 
 	private void searchAndPrintOrganizationUsers(StringBuilder strBuilder, Organization organization) {
 		List<User> users = userRepositoryImpl.findUserByOrganizationId(organization.getId());
 		if (users != null && !users.isEmpty()) {
 			for (int i = 0; i < users.size(); i++) {
-				strBuilder.append("\n user_" + i + "    " + users.get(i).getName());
+				strBuilder.append("\nuser_" + i + "    " + users.get(i).getName());
 			}
 		}
 	}
@@ -55,7 +56,7 @@ public class OrganizationService {
 		List<Ticket> tickets = ticketRepositoryImpl.findTicketByOrganizationId(organization.getId());
 		if (tickets != null && !tickets.isEmpty()) {
 			for (int i = 0; i < tickets.size(); i++) {
-				strBuilder.append("\n ticket_" + i + "    " + tickets.get(i).getSubject());
+				strBuilder.append("\nticket_" + i + "    " + tickets.get(i).getSubject());
 			}
 		}
 	}

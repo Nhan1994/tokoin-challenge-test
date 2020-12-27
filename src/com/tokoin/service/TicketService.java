@@ -23,28 +23,29 @@ public class TicketService {
 		this.userRepositoryImpl = userRepositoryImpl;
 	}
 	
-	public void searchTicket(String term, String value) {
+	public StringBuilder searchTicket(String term, String value) {
 		List<Ticket> tickets = ticketRepositoryImpl.findTicketByTerm(term, value);
 
+		StringBuilder strBuilder = new StringBuilder();
 		if (tickets != null && !tickets.isEmpty()) {
-			StringBuilder strBuilder = new StringBuilder();
 			tickets.forEach(ticket -> {
-				PrintObject.printObjectResult(ticket);
+				PrintObject.appendObjectResult(ticket, strBuilder);
 				searchAndPrintTicketAssignees(strBuilder, ticket);
 				searchAndPrintTicketSubmitters(strBuilder, ticket);
 				searchAndPrintTicketOrganizations(strBuilder, ticket);
 				System.out.println(strBuilder.toString());
 			});
 		} else {
-			PrintObject.printNoResultFound("tickets", term, value);
+			PrintObject.printNoResultFound("tickets", term, value, strBuilder);
 		}
+		return strBuilder;
 	}
 
 	private void searchAndPrintTicketOrganizations(StringBuilder strBuilder, Ticket ticket) {
 		List<Organization> organizations = organizationRepositoryImpl.findOrganizationById(ticket.getOrganizationId());
 		if (organizations != null && !organizations.isEmpty()) {
 			for (int i = 0 ; i < organizations.size() ; i++) {
-				strBuilder.append("\n organization_" + i + "    " +  organizations.get(i).getName());
+				strBuilder.append("\norganization_" + i + "    " +  organizations.get(i).getName());
 			}
 		}
 	}
@@ -53,7 +54,7 @@ public class TicketService {
 		List<User> submitterUsers = userRepositoryImpl.findUserById(ticket.getSubmitterId());
 		if (submitterUsers != null && !submitterUsers.isEmpty()) {
 			for (int i = 0 ; i < submitterUsers.size() ; i++) {
-				strBuilder.append("\n submitter_user_" + i + "    " +  submitterUsers.get(i).getName());
+				strBuilder.append("\nsubmitter_user_" + i + "    " +  submitterUsers.get(i).getName());
 			}
 		}
 	}
@@ -62,7 +63,7 @@ public class TicketService {
 		List<User> assigneeUsers = userRepositoryImpl.findUserById(ticket.getAssigneeId());
 		if (assigneeUsers != null && !assigneeUsers.isEmpty()) {
 			for (int i = 0 ; i < assigneeUsers.size() ; i++) {
-				strBuilder.append("\n assignee_user_" + i + "    " +  assigneeUsers.get(i).getName());
+				strBuilder.append("\nassignee_user_" + i + "    " +  assigneeUsers.get(i).getName());
 			}
 		}
 	}

@@ -80,9 +80,10 @@ public class Main {
 		term = sc.next();
 		System.out.println("Enter search value");
 		value = sc.next();
+		value += sc.nextLine();
 		init();
 		userService = new UserService(organizationRepositoryImpl, ticketRepositoryImpl, userRepositoryImpl);
-		userService.searchUser(term, value);
+		System.out.println(userService.searchUser(term, value).toString());
 	}
 
 	private void searchOrganization(String term, String value, Scanner sc) {
@@ -90,10 +91,11 @@ public class Main {
 		term = sc.next();
 		System.out.println("Enter search value");
 		value = sc.next();
+		value += sc.nextLine();
 		init();
 		organizationService = new OrganizationService(organizationRepositoryImpl, ticketRepositoryImpl,
 				userRepositoryImpl);
-		organizationService.searchOrganization(term, value);
+		System.out.println(organizationService.searchOrganization(term, value).toString());
 	}
 
 	private void searchTicket(String term, String value, Scanner sc) {
@@ -101,9 +103,10 @@ public class Main {
 		term = sc.next();
 		System.out.println("Enter search value");
 		value = sc.next();
+		value += sc.nextLine();
 		init();
 		ticketService = new TicketService(organizationRepositoryImpl, ticketRepositoryImpl, userRepositoryImpl);
-		ticketService.searchTicket(term, value);
+		System.out.println(ticketService.searchTicket(term, value).toString());
 	}
 
 	private void printSearchableFields() {
