@@ -19,7 +19,8 @@ public class TicketRepositoryImpl implements TicketRepository {
 		List<Ticket> tickets = new ArrayList<>();
 		try {
 			Type collectionType = new TypeToken<Collection<Ticket>>() {}.getType();
-			tickets = JsonReader.readJsonFromFile("src\\com\\tokoin\\data\\tickets.json", collectionType);
+			JsonReader.getJsonPath();
+			tickets = JsonReader.readJsonFromFile(JsonReader.TICKET_PATH, collectionType);
 		} catch (FileNotFoundException e) {
 			System.out.println("Json file not found");
 			e.printStackTrace();

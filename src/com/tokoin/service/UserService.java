@@ -33,8 +33,8 @@ public class UserService {
 				searchAndPrintUserTicketSubmitters(strBuilder, user);
 				searchAndPrintUserTicketAssignees(strBuilder, user);
 				searchAndPrintUserOrganizations(strBuilder, user);
+				System.out.println(strBuilder.toString());
 			});
-			System.out.println(strBuilder.toString());
 		} else {
 			PrintObject.printNoResultFound("users", term, value);
 		}

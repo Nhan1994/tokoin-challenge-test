@@ -19,7 +19,8 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 		List<Organization> organizations = new ArrayList<>();
 		try {
 			Type collectionType = new TypeToken<Collection<Organization>>() {}.getType();
-			organizations = JsonReader.readJsonFromFile("src\\com\\tokoin\\data\\organizations.json", collectionType);
+			JsonReader.getJsonPath();
+			organizations = JsonReader.readJsonFromFile(JsonReader.ORGANIZATION_PATH, collectionType);
 		} catch (FileNotFoundException e) {
 			System.out.println("Json file not found");
 			e.printStackTrace();

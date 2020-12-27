@@ -18,6 +18,7 @@ public class PrintObject {
 	// print all attribute names and value from object
 	public static <T> void printObjectResult(Object object) {
         Field[] fields = object.getClass().getDeclaredFields();
+        printHyphen();
         for (Field field : fields) {
         	field.setAccessible(true);
         	SerializedName serializedName = field.getAnnotation(SerializedName.class);

@@ -13,7 +13,7 @@ import com.tokoin.service.TicketService;
 import com.tokoin.service.UserService;
 import com.tokoin.utils.PrintObject;
 
-public class MainProgram {
+public class Main {
 	private UserRepositoryImpl userRepositoryImpl;
 	private OrganizationRepositoryImpl organizationRepositoryImpl;
 	private TicketRepositoryImpl ticketRepositoryImpl;
@@ -29,7 +29,7 @@ public class MainProgram {
 	}
 
 	public static void main(String[] args) {
-		MainProgram main = new MainProgram();
+		Main main = new Main();
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Type 'quit' to exit any time, Press 'Enter' to continue ");
 		String enterOrQuit = sc.nextLine();
@@ -48,7 +48,7 @@ public class MainProgram {
 		}
 	}
 
-	private void search(MainProgram main, Scanner sc) {
+	private void search(Main main, Scanner sc) {
 		System.out.println("Select 1) Users or 2) Tickets or 3) Organizations");
 		String term = "";
 		String value = "";

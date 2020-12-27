@@ -19,7 +19,8 @@ public class UserRepositoryImpl implements UserRepository {
 		List<User> users = new ArrayList<>();
 		try {
 			Type collectionType = new TypeToken<Collection<User>>() {}.getType();
-			users = JsonReader.readJsonFromFile("src\\com\\tokoin\\data\\users.json", collectionType);
+			JsonReader.getJsonPath();
+			users = JsonReader.readJsonFromFile(JsonReader.USER_PATH, collectionType);
 		} catch (FileNotFoundException e) {
 			System.out.println("Json file not found");
 			e.printStackTrace();

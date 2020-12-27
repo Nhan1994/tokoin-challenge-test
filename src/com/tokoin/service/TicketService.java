@@ -33,11 +33,10 @@ public class TicketService {
 				searchAndPrintTicketAssignees(strBuilder, ticket);
 				searchAndPrintTicketSubmitters(strBuilder, ticket);
 				searchAndPrintTicketOrganizations(strBuilder, ticket);
+				System.out.println(strBuilder.toString());
 			});
-			System.out.println(strBuilder.toString());
 		} else {
-			System.out.println("Search organization for " + term + " with a value of " + value);
-			System.out.println("No result found");
+			PrintObject.printNoResultFound("tickets", term, value);
 		}
 	}
 
