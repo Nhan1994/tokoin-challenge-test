@@ -24,7 +24,7 @@ public class PrintObject {
         	SerializedName serializedName = field.getAnnotation(SerializedName.class);
             try {
 //				System.out.printf("\n" + serializedName.value() + "     " + field.get(object));
-				strBuilder.append("\n" + serializedName.value() + "     " + field.get(object));
+				strBuilder.append("\n" + serializedName.value() + "        " + field.get(object));
 			} catch (IllegalArgumentException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {

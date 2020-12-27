@@ -50,6 +50,7 @@ public class UserUnitTest {
 		assertEquals(userRepositoryTest.loadUsers(), users);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testFindUserById() {
 		Type collectionType = new TypeToken<Collection<User>>() {}.getType();

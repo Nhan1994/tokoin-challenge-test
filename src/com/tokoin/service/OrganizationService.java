@@ -46,7 +46,7 @@ public class OrganizationService {
 		List<User> users = userRepositoryImpl.findUserByOrganizationId(organization.getId());
 		if (users != null && !users.isEmpty()) {
 			for (int i = 0; i < users.size(); i++) {
-				strBuilder.append("\nuser_" + i + "    " + users.get(i).getName());
+				strBuilder.append("\nuser_" + i + "        " + users.get(i).getName());
 			}
 		}
 	}
@@ -55,7 +55,7 @@ public class OrganizationService {
 		List<Ticket> tickets = ticketRepositoryImpl.findTicketByOrganizationId(organization.getId());
 		if (tickets != null && !tickets.isEmpty()) {
 			for (int i = 0; i < tickets.size(); i++) {
-				strBuilder.append("\nticket_" + i + "    " + tickets.get(i).getSubject());
+				strBuilder.append("\nticket_" + i + "        " + tickets.get(i).getSubject());
 			}
 		}
 	}

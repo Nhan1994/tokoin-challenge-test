@@ -169,28 +169,28 @@ public class SetUpMockReturnData {
 			"    ]\n" + 
 			"  }]";
 	public static String USER_ID_54_RESULT = "\n-------------------------------------------------------\n" + 
-			"_id     54\n" + 
-			"url     http://initech.tokoin.io.com/api/v2/users/54.json\n" + 
-			"external_id     a32204d7-fd49-4ba7-be1f-ca7763937e02\n" + 
-			"name     Spence Tate\n" + 
-			"alias     Miss Tamara\n" + 
-			"created_at     2016-01-03T02:38:58 -11:00\n" + 
-			"active     true\n" + 
-			"verified     false\n" + 
-			"shared     false\n" + 
-			"locale     zh-CN\n" + 
-			"timezone     Viet Nam\n" + 
-			"last_login_at     2012-04-01T02:37:37 -11:00\n" + 
-			"email     tamaratate@flotonic.com\n" + 
-			"phone     8074-353-219\n" + 
-			"signature     Don't Worry Be Happy!\n" + 
-			"organization_id     124\n" + 
-			"tags     [Sterling, Freeburn, Wright, Naomi]\n" + 
-			"suspended     true\n" + 
-			"role     admin\n" + 
-			"submitter_ticket_0    A Nuisance in French Polynesia\n" + 
-			"assignee_ticket_0    A Drama in Israel\n" + 
-			"organization_0    Bitrex";
+			"_id        54\n" + 
+			"url        http://initech.tokoin.io.com/api/v2/users/54.json\n" + 
+			"external_id        a32204d7-fd49-4ba7-be1f-ca7763937e02\n" + 
+			"name        Spence Tate\n" + 
+			"alias        Miss Tamara\n" + 
+			"created_at        2016-01-03T02:38:58 -11:00\n" + 
+			"active        true\n" + 
+			"verified        false\n" + 
+			"shared        false\n" + 
+			"locale        zh-CN\n" + 
+			"timezone        Viet Nam\n" + 
+			"last_login_at        2012-04-01T02:37:37 -11:00\n" + 
+			"email        tamaratate@flotonic.com\n" + 
+			"phone        8074-353-219\n" + 
+			"signature        Don't Worry Be Happy!\n" + 
+			"organization_id        124\n" + 
+			"tags        [Sterling, Freeburn, Wright, Naomi]\n" + 
+			"suspended        true\n" + 
+			"role        admin\n" + 
+			"submitter_ticket_0        A Nuisance in French Polynesia\n" + 
+			"assignee_ticket_0        A Drama in Israel\n" + 
+			"organization_0        Bitrex";
 	public static String USER_NOT_FOUND = "Search users for _id with a value of 90" + 
 			"\nNo result found";
 	
@@ -219,40 +219,40 @@ public class SetUpMockReturnData {
 			"  }]";
 	
 	public static String ORGANIZATION_ID_124_RESULT ="\n-------------------------------------------------------\n" + 
-			"_id     124\n" + 
-			"url     http://initech.tokoin.io.com/api/v2/organizations/124.json\n" + 
-			"external_id     15c21605-cbc6-440f-8da2-6e1601aed5fa\n" + 
-			"name     Bitrex\n" + 
-			"domain_names     [unisure.com, boink.com, quinex.com, poochies.com]\n" + 
-			"created_at     2016-05-11T12:16:15 -10:00\n" + 
-			"details     Non profit\n" + 
-			"shared_tickets     true\n" + 
-			"tags     [Lott, Hunter, Beasley, Glass]\n" + 
-			"ticket_0    A Catastrophe in Belize\n" + 
-			"user_0    Spence Tate";
+			"_id        124\n" + 
+			"url        http://initech.tokoin.io.com/api/v2/organizations/124.json\n" + 
+			"external_id        15c21605-cbc6-440f-8da2-6e1601aed5fa\n" + 
+			"name        Bitrex\n" + 
+			"domain_names        [unisure.com, boink.com, quinex.com, poochies.com]\n" + 
+			"created_at        2016-05-11T12:16:15 -10:00\n" + 
+			"details        Non profit\n" + 
+			"shared_tickets        true\n" + 
+			"tags        [Lott, Hunter, Beasley, Glass]\n" + 
+			"ticket_0        A Catastrophe in Belize\n" + 
+			"user_0        Spence Tate";
 	
 	public static String ORGANIZATION_NOT_FOUND = "Search organization for _id with a value of 90" + 
 			"\nNo result found";
 	public static String TICKET_RESULT = "\n-------------------------------------------------------\n" + 
-			"_id     828c158a-91e3-42b9-8aed-ac97407a150f\n" + 
-			"url     http://initech.tokoin.io.com/api/v2/tickets/828c158a-91e3-42b9-8aed-ac97407a150f.json\n" + 
-			"external_id     2c8cc93c-68e4-4685-bf22-e329ac69636b\n" + 
-			"created_at     2016-04-10T11:55:28 -10:00\n" + 
-			"type     task\n" + 
-			"subject     A Drama in Israel\n" + 
-			"description     Veniam officia irure laboris laborum irure incididunt ea dolor. Ullamco proident occaecat occaecat et sit ex quis mollit occaecat eiusmod sunt Lorem enim quis.\n" + 
-			"priority     normal\n" + 
-			"status     solved\n" + 
-			"submitter_id     72\n" + 
-			"assignee_id     54\n" + 
-			"organization_id     116\n" + 
-			"tags     [Missouri, Alabama, Virginia, Virgin Islands]\n" + 
-			"has_incidents     false\n" + 
-			"due_at     2016-07-31T04:32:55 -10:00\n" + 
-			"via     web\n" + 
-			"assignee_user_0    Spence Tate\n" + 
-			"submitter_user_0    Valentine Ashley\n" + 
-			"organization_0    Zentry";
+			"_id        828c158a-91e3-42b9-8aed-ac97407a150f\n" + 
+			"url        http://initech.tokoin.io.com/api/v2/tickets/828c158a-91e3-42b9-8aed-ac97407a150f.json\n" + 
+			"external_id        2c8cc93c-68e4-4685-bf22-e329ac69636b\n" + 
+			"created_at        2016-04-10T11:55:28 -10:00\n" + 
+			"type        task\n" + 
+			"subject        A Drama in Israel\n" + 
+			"description        Veniam officia irure laboris laborum irure incididunt ea dolor. Ullamco proident occaecat occaecat et sit ex quis mollit occaecat eiusmod sunt Lorem enim quis.\n" + 
+			"priority        normal\n" + 
+			"status        solved\n" + 
+			"submitter_id        72\n" + 
+			"assignee_id        54\n" + 
+			"organization_id        116\n" + 
+			"tags        [Missouri, Alabama, Virginia, Virgin Islands]\n" + 
+			"has_incidents        false\n" + 
+			"due_at        2016-07-31T04:32:55 -10:00\n" + 
+			"via        web\n" + 
+			"assignee_user_0        Spence Tate\n" + 
+			"submitter_user_0        Valentine Ashley\n" + 
+			"organization_0        Zentry";
 	public static String TICKET_NOT_FOUND = "Search tickets for _id with a value of ba4feaec-47ac-483f-bc3d-2604f797e6f0" + 
 			"\nNo result found";
 }

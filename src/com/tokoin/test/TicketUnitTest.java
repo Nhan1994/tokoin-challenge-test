@@ -49,6 +49,7 @@ public class TicketUnitTest {
 		assertEquals(ticketRepositoryTest.loadTickets(), tickets);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testFindTicketId() {
 		Type collectionType = new TypeToken<Collection<Ticket>>() {}.getType();

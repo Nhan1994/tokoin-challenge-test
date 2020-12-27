@@ -49,6 +49,7 @@ public class OrganizationUnitTest {
 		assertEquals(organizationRepositoryTest.loadOrganization(), organizations);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testFindOrganizationId() {
 		Type collectionType = new TypeToken<Collection<Organization>>() {}.getType();

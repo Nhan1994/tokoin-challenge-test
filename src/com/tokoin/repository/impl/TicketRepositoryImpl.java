@@ -18,7 +18,8 @@ public class TicketRepositoryImpl implements TicketRepository {
 	public List<Ticket> loadTickets() {
 		List<Ticket> tickets = new ArrayList<>();
 		try {
-			Type collectionType = new TypeToken<Collection<Ticket>>() {}.getType();
+			Type collectionType = new TypeToken<Collection<Ticket>>() {
+			}.getType();
 			JsonReader.getJsonPath();
 			tickets = JsonReader.readJsonFromFile(JsonReader.TICKET_PATH, collectionType);
 		} catch (FileNotFoundException e) {
@@ -37,15 +38,19 @@ public class TicketRepositoryImpl implements TicketRepository {
 			return loadTickets().stream().filter(ticket -> ticket.getExternalId().equals(value))
 					.collect(Collectors.toList());
 		case "type":
-			return loadTickets().stream().filter(ticket -> ticket.getType().equals(value)).collect(Collectors.toList());
+			return loadTickets().stream().filter(ticket -> (ticket.getType() != null && ticket.getType().equals(value)))
+					.collect(Collectors.toList());
 		case "subject":
-			return loadTickets().stream().filter(ticket -> ticket.getSubject().equals(value))
+			return loadTickets().stream()
+					.filter(ticket -> (ticket.getSubject() != null && ticket.getSubject().equals(value)))
 					.collect(Collectors.toList());
 		case "description":
-			return loadTickets().stream().filter(ticket -> ticket.getDescription().equals(value))
+			return loadTickets().stream()
+					.filter(ticket -> (ticket.getDescription() != null && ticket.getDescription().equals(value)))
 					.collect(Collectors.toList());
 		case "priority":
-			return loadTickets().stream().filter(ticket -> ticket.getPriority().equals(value))
+			return loadTickets().stream()
+					.filter(ticket -> (ticket.getPriority() != null && ticket.getPriority().equals(value)))
 					.collect(Collectors.toList());
 		case "status":
 			return loadTickets().stream().filter(ticket -> ticket.getStatus().equals(value))
@@ -60,7 +65,8 @@ public class TicketRepositoryImpl implements TicketRepository {
 			return loadTickets().stream().filter(ticket -> ticket.getOrganizationId() == Integer.parseInt(value))
 					.collect(Collectors.toList());
 		case "via":
-			return loadTickets().stream().filter(ticket -> ticket.getVia().equals(value)).collect(Collectors.toList());
+			return loadTickets().stream().filter(ticket -> (ticket.getVia() != null && ticket.getVia().equals(value)))
+					.collect(Collectors.toList());
 		case "tags":
 			return loadTickets().stream().filter(ticket -> ticket.getTags().stream().anyMatch(tag -> tag.equals(value)))
 					.collect(Collectors.toList());

@@ -44,7 +44,7 @@ public class TicketService {
 		List<Organization> organizations = organizationRepositoryImpl.findOrganizationById(ticket.getOrganizationId());
 		if (organizations != null && !organizations.isEmpty()) {
 			for (int i = 0 ; i < organizations.size() ; i++) {
-				strBuilder.append("\norganization_" + i + "    " +  organizations.get(i).getName());
+				strBuilder.append("\norganization_" + i + "        " +  organizations.get(i).getName());
 			}
 		}
 	}
@@ -53,7 +53,7 @@ public class TicketService {
 		List<User> submitterUsers = userRepositoryImpl.findUserById(ticket.getSubmitterId());
 		if (submitterUsers != null && !submitterUsers.isEmpty()) {
 			for (int i = 0 ; i < submitterUsers.size() ; i++) {
-				strBuilder.append("\nsubmitter_user_" + i + "    " +  submitterUsers.get(i).getName());
+				strBuilder.append("\nsubmitter_user_" + i + "        " +  submitterUsers.get(i).getName());
 			}
 		}
 	}
@@ -62,7 +62,7 @@ public class TicketService {
 		List<User> assigneeUsers = userRepositoryImpl.findUserById(ticket.getAssigneeId());
 		if (assigneeUsers != null && !assigneeUsers.isEmpty()) {
 			for (int i = 0 ; i < assigneeUsers.size() ; i++) {
-				strBuilder.append("\nassignee_user_" + i + "    " +  assigneeUsers.get(i).getName());
+				strBuilder.append("\nassignee_user_" + i + "        " +  assigneeUsers.get(i).getName());
 			}
 		}
 	}

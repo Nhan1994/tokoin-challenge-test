@@ -12,13 +12,14 @@ import com.tokoin.model.Organization;
 import com.tokoin.repository.OrganizationRepository;
 import com.tokoin.utils.JsonReader;
 
-public class OrganizationRepositoryImpl implements OrganizationRepository{
+public class OrganizationRepositoryImpl implements OrganizationRepository {
 
 	@Override
 	public List<Organization> loadOrganization() {
 		List<Organization> organizations = new ArrayList<>();
 		try {
-			Type collectionType = new TypeToken<Collection<Organization>>() {}.getType();
+			Type collectionType = new TypeToken<Collection<Organization>>() {
+			}.getType();
 			JsonReader.getJsonPath();
 			organizations = JsonReader.readJsonFromFile(JsonReader.ORGANIZATION_PATH, collectionType);
 		} catch (FileNotFoundException e) {
@@ -32,31 +33,29 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 	public List<Organization> findOrganizationByTerm(String term, String value) {
 		switch (term) {
 		case "_id":
-			return loadOrganization().stream()
-					 .filter(organization -> organization.getId() == Integer.parseInt(value))
-					 .collect(Collectors.toList());
+			return loadOrganization().stream().filter(organization -> organization.getId() == Integer.parseInt(value))
+					.collect(Collectors.toList());
 		case "external_id":
-			return loadOrganization().stream()
-					 .filter(organization -> organization.getExternalId().equals(value))
-					 .collect(Collectors.toList());
+			return loadOrganization().stream().filter(organization -> organization.getExternalId().equals(value))
+					.collect(Collectors.toList());
 		case "name":
+			return loadOrganization().stream().filter(organization -> organization.getName().equals(value))
+					.collect(Collectors.toList());
+		case "shared_tickets":
 			return loadOrganization().stream()
-					 .filter(organization -> organization.getName().equals(value))
-					 .collect(Collectors.toList());
+					.filter(organization -> organization.isSharedTickets() == Boolean.parseBoolean(value))
+					.collect(Collectors.toList());
 		case "domain_names":
-			return loadOrganization().stream()
-					 .filter(organization -> organization.getDomainNames().stream()
-							 .anyMatch(domainName -> domainName.equals(value)))
-					 .collect(Collectors.toList());
+			return loadOrganization().stream().filter(organization -> organization.getDomainNames().stream()
+					.anyMatch(domainName -> domainName.equals(value))).collect(Collectors.toList());
 		case "details":
-			return loadOrganization().stream()
-					 .filter(organization -> organization.getDetails().equals(value))
-					 .collect(Collectors.toList());
+			return loadOrganization().stream().filter(
+					organization -> (organization.getDetails() != null && organization.getDetails().equals(value)))
+					.collect(Collectors.toList());
 		case "tags":
 			return loadOrganization().stream()
-					 .filter(organization -> organization.getTags().stream()
-							 .anyMatch(tag -> tag.equals(value)))
-					 .collect(Collectors.toList());
+					.filter(organization -> organization.getTags().stream().anyMatch(tag -> tag.equals(value)))
+					.collect(Collectors.toList());
 		default:
 			System.out.println("The term you input doesn't exist");
 			return null;
@@ -65,9 +64,8 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 
 	@Override
 	public List<Organization> findOrganizationById(int organizationId) {
-		return loadOrganization().stream()
-				 .filter(organization -> organization.getId() == organizationId)
-				 .collect(Collectors.toList());
+		return loadOrganization().stream().filter(organization -> organization.getId() == organizationId)
+				.collect(Collectors.toList());
 	}
 
 }

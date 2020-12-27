@@ -34,21 +34,31 @@ public class Main {
 		System.out.print("Type 'quit' to exit any time, Press 'Enter' to continue ");
 		String enterOrQuit = sc.nextLine();
 		if (enterOrQuit.equals("")) {
-			printOptions();
-			String searchOptions = sc.next();
-			if (searchOptions.equals("1")) {
-				main.search(main, sc);
-			} else if (searchOptions.equals("2")) {
-				main.printSearchableFields();
-			} else if (searchOptions.equals("quit")) {
-				System.exit(0);
-			}
-		} else {
+			main.search(main, sc);
+		} if (enterOrQuit.equals("quit")) {
+			System.exit(0);
+		}
+	}
+	
+	private void search(Main main, Scanner sc) {
+		printIntroduceOptions();
+		String searchOptions = sc.next();
+		while (!searchOptions.equals("1") && !searchOptions.equals("2") && !searchOptions.equals("quit")) {
+			System.out.println("Input selection is invalid, please type again");
+			printIntroduceOptions();
+			searchOptions = sc.next();
+		}
+		if (searchOptions.equals("1")) {
+			main.searchByOption(main, sc);
+		} else if (searchOptions.equals("2")) {
+			main.printSearchableFields();
+		} else if (searchOptions.equals("quit")) {
+			System.err.println("Exit program");
 			System.exit(0);
 		}
 	}
 
-	private void search(Main main, Scanner sc) {
+	private void searchByOption(Main main, Scanner sc) {
 		System.out.println("Select 1) Users or 2) Tickets or 3) Organizations");
 		String term = "";
 		String value = "";
@@ -64,11 +74,12 @@ public class Main {
 			main.searchOrganization(term, value, sc);
 			break;
 		default:
+			System.out.println("Search option input is invalid");
 			break;
 		}
 	}
 
-	private static void printOptions() {
+	private static void printIntroduceOptions() {
 		System.out.println("\n\n    Select search options:");
 		System.out.println("         * Press 1 to search");
 		System.out.println("         * Press 2 to view a list of searchable fields");

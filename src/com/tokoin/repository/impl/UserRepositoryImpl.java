@@ -18,7 +18,8 @@ public class UserRepositoryImpl implements UserRepository {
 	public List<User> loadUsers() {
 		List<User> users = new ArrayList<>();
 		try {
-			Type collectionType = new TypeToken<Collection<User>>() {}.getType();
+			Type collectionType = new TypeToken<Collection<User>>() {
+			}.getType();
 			JsonReader.getJsonPath();
 			users = JsonReader.readJsonFromFile(JsonReader.USER_PATH, collectionType);
 		} catch (FileNotFoundException e) {
@@ -39,7 +40,8 @@ public class UserRepositoryImpl implements UserRepository {
 		case "name":
 			return loadUsers().stream().filter(user -> user.getName().equals(value)).collect(Collectors.toList());
 		case "alias":
-			return loadUsers().stream().filter(user -> user.getAlias().equals(value)).collect(Collectors.toList());
+			return loadUsers().stream().filter(user -> (user.getAlias() != null && user.getAlias().equals(value)))
+					.collect(Collectors.toList());
 		case "active":
 			return loadUsers().stream().filter(user -> user.isActive() == Boolean.parseBoolean(value))
 					.collect(Collectors.toList());
@@ -50,14 +52,17 @@ public class UserRepositoryImpl implements UserRepository {
 			return loadUsers().stream().filter(user -> user.isShared() == Boolean.parseBoolean(value))
 					.collect(Collectors.toList());
 		case "locale":
-			return loadUsers().stream().filter(user -> user.getLocale().equals(value))
-					.collect(Collectors.toList());	
+			return loadUsers().stream().filter(user -> (user.getLocale() != null && user.getLocale().equals(value)))
+					.collect(Collectors.toList());
 		case "timezone":
-			return loadUsers().stream().filter(user -> user.getTimezone().equals(value)).collect(Collectors.toList());
+			return loadUsers().stream().filter(user -> (user.getTimezone() != null && user.getTimezone().equals(value)))
+					.collect(Collectors.toList());
 		case "email":
-			return loadUsers().stream().filter(user -> user.getEmail().equals(value)).collect(Collectors.toList());
+			return loadUsers().stream().filter(user -> (user.getEmail() != null && user.getEmail().equals(value)))
+					.collect(Collectors.toList());
 		case "phone":
-			return loadUsers().stream().filter(user -> user.getPhone().equals(value)).collect(Collectors.toList());
+			return loadUsers().stream().filter(user -> (user.getPhone() != null && user.getPhone().equals(value)))
+					.collect(Collectors.toList());
 		case "signature":
 			return loadUsers().stream().filter(user -> user.getSignature().equals(value)).collect(Collectors.toList());
 		case "organization_id":
@@ -67,7 +72,8 @@ public class UserRepositoryImpl implements UserRepository {
 			return loadUsers().stream().filter(user -> user.getTags().stream().anyMatch(tag -> tag.equals(value)))
 					.collect(Collectors.toList());
 		case "role":
-			return loadUsers().stream().filter(user -> user.getRole().equals(value)).collect(Collectors.toList());
+			return loadUsers().stream().filter(user -> (user.getRole() != null && user.getRole().equals(value)))
+					.collect(Collectors.toList());
 		default:
 			System.out.println("The term you input doesn't exist");
 			return null;
@@ -82,7 +88,6 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public List<User> findUserById(int userId) {
-		return loadUsers().stream().filter(user -> user.getId() == userId)
-				.collect(Collectors.toList());
+		return loadUsers().stream().filter(user -> user.getId() == userId).collect(Collectors.toList());
 	}
 }
