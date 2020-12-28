@@ -84,4 +84,10 @@ public class UserUnitTest {
 		when(userRepositoryTest.findUserByTerm("_id", "54")).thenReturn(null);
 		assertTrue(userService.searchUser("_id", "90").toString().equals(SetUpMockReturnData.USER_NOT_FOUND));
 	}
+	
+	@Test
+	public void testFindUserInputWrongTerm() {
+		List<User> emptyUser = new ArrayList<User>();
+		assertEquals(userRepositoryTest.findUserByTerm("_id1", "54"),emptyUser);
+	}
 }

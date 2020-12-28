@@ -9,7 +9,7 @@ java -version
 ```
 
 ###### Run
-There are some external library to run which is I already included in project but no need to add manually, 
+There are some external library to run which is I already included in project so no need to add manually, 
 just run this command and it will auto include external libs (Window/Linux), the command need to run in project folder.
 
 ```
@@ -36,9 +36,9 @@ This project is splitted into many modules:
 
 Workflow:
 
-- Reposiroty will read json files by using util class, parse data and convert all json data into users, tickets and organizations model.
+- Repository will read json files by using util class, parse data and convert all json data into users, tickets and organizations model.
 - Service layer will get data from repository and also get relative data based on which type of search, then return list of data in type of StringBuilder.
 - We can search by filter directly on files (based on which type input), but it would be slow if doing stuff on physical files. Load all data into object then manipulate on it because object is stored on java heap, then would be faster.
-## What haven't done good
+## What haven't done well
 - Test cases is not coverd much code because lack of test cases to create, need to update more.
 - The output result show on the command line is not in good format, column of data is not in straight line so hard to view.

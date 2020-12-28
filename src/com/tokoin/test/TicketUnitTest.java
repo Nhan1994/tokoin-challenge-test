@@ -82,4 +82,10 @@ public class TicketUnitTest {
 		when(ticketRepositoryTest.findTicketByTerm("_id", "ba4feaec-47ac-483f-bc3d-2604f797e6f0")).thenReturn(null);
 		assertTrue(ticketService.searchTicket("_id", "ba4feaec-47ac-483f-bc3d-2604f797e6f0").toString().equals(SetUpMockReturnData.TICKET_NOT_FOUND));
 	}
+	
+	@Test
+	public void testFindTicketInputWrongTerm() {
+		List<Ticket> emptyTicket = new ArrayList<Ticket>();
+		assertEquals(ticketRepositoryTest.findTicketByTerm("_id1", "5956549"),emptyTicket);
+	}
 }

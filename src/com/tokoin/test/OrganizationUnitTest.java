@@ -80,4 +80,10 @@ public class OrganizationUnitTest {
 		when(organizationRepositoryTest.findOrganizationByTerm("_id", "90")).thenReturn(null);
 		assertTrue(organizationService.searchOrganization("_id", "90").toString().equals(SetUpMockReturnData.ORGANIZATION_NOT_FOUND));
 	}
+	
+	@Test
+	public void testFindOrganizationInputWrongTerm() {
+		List<Organization> emptyOrganization = new ArrayList<Organization>();
+		assertEquals(organizationRepositoryTest.findOrganizationByTerm("_id1", "54"),emptyOrganization);
+	}
 }
